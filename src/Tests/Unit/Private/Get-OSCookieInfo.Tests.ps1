@@ -21,7 +21,7 @@ InModuleScope $ModuleName {
             Context 'Windows' -Skip:(!$IsWindows) {
                 It 'should return expected results for Chrome' {
                     $eval = Get-OSCookieInfo -Browser 'Chrome'
-                    $eval.SQLitePath | Should -BeExactly "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Network\Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
                 It 'should return expected results for Firefox' {
@@ -34,19 +34,19 @@ InModuleScope $ModuleName {
                 } #it
                 It 'should return expected results for Edge' {
                     $eval = Get-OSCookieInfo -Browser 'Edge'
-                    $eval.SQLitePath | Should -BeExactly "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Network\Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
             } #context_windows
             Context 'Linux' -Skip:(!$IsLinux) {
                 It 'should return expected results for Chrome' {
                     $eval = Get-OSCookieInfo -Browser 'Chrome'
-                    $eval.SQLitePath | Should -BeExactly "$env:HOME/.config/google-chrome/Default/Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:HOME/.config/google-chrome/Default/Network/Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
                 It 'should return expected results for Edge' {
                     $eval = Get-OSCookieInfo -Browser 'Edge' -Verbose
-                    $eval.SQLitePath | Should -BeExactly "$env:HOME/.config/microsoft-edge-beta/Default/Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:HOME/.config/microsoft-edge-beta/Default/Network/Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
                 It 'should return expected results for FireFox' {
@@ -61,12 +61,12 @@ InModuleScope $ModuleName {
             Context 'MacOS' -Skip:(!$IsMacOS) {
                 It 'should return expected results for Chrome' {
                     $eval = Get-OSCookieInfo -Browser 'Chrome'
-                    $eval.SQLitePath | Should -BeExactly "$env:HOME/Library/Application Support/Google/Chrome/Default/Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:HOME/Library/Application Support/Google/Chrome/Default/Network/Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
                 It 'should return expected results for Edge' {
                     $eval = Get-OSCookieInfo -Browser 'Edge' -Verbose
-                    $eval.SQLitePath | Should -BeExactly "$env:HOME/Library/Application Support/Microsoft Edge/Default/Cookies"
+                    $eval.SQLitePath | Should -BeExactly "$env:HOME/Library/Application Support/Microsoft Edge/Default/Network/Cookies"
                     $eval.TableName | Should -BeExactly 'cookies'
                 } #it
                 It 'should return expected results for FireFox' {

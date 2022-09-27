@@ -32,11 +32,11 @@ function Get-OSCookieInfo {
         Write-Verbose -Message 'Windows Detected'
         switch ($Browser) {
             Edge {
-                $sqlPath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Cookies"
+                $sqlPath = "$env:LOCALAPPDATA\Microsoft\Edge\User Data\Default\Network\Cookies"
                 $tableName = 'cookies'
             }
             Chrome {
-                $sqlPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Cookies"
+                $sqlPath = "$env:LOCALAPPDATA\Google\Chrome\User Data\Default\Network\Cookies"
                 $tableName = 'cookies'
             }
             FireFox {
@@ -56,11 +56,11 @@ function Get-OSCookieInfo {
         Write-Verbose -Message 'Linux Detected'
         switch ($Browser) {
             Edge {
-                $sqlPath = "$env:HOME/.config/microsoft-edge-beta/Default/Cookies"
+                $sqlPath = "$env:HOME/.config/microsoft-edge-beta/Default/Network/Cookies"
                 $tableName = 'cookies'
             }
             Chrome {
-                $sqlPath = "$env:HOME/.config/google-chrome/Default/Cookies"
+                $sqlPath = "$env:HOME/.config/google-chrome/Default/Network/Cookies"
                 $tableName = 'cookies'
             }
             FireFox {
@@ -79,11 +79,11 @@ function Get-OSCookieInfo {
         Write-Verbose -Message 'OSX Detected'
         switch ($Browser) {
             Edge {
-                $sqlPath = "$env:HOME/Library/Application Support/Microsoft Edge/Default/Cookies"
+                $sqlPath = "$env:HOME/Library/Application Support/Microsoft Edge/Default/Network/Cookies"
                 $tableName = 'cookies'
             }
             Chrome {
-                $sqlPath = "$env:HOME/Library/Application Support/Google/Chrome/Default/Cookies"
+                $sqlPath = "$env:HOME/Library/Application Support/Google/Chrome/Default/Network/Cookies"
                 $tableName = 'cookies'
             }
             FireFox {
